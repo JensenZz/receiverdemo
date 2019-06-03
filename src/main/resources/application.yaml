@@ -1,0 +1,30 @@
+spring:
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        health-check-interval: 30s
+        healthCheckPath: /actuator/health
+        instance-id: receiver-1
+        prefer-ip-address: true
+        enabled: true
+        register: true
+  application:
+    name: receiver
+
+server:
+  port: 10002
+
+logging:
+  path: ${user.dir}/logs
+  level:
+    root: info
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
